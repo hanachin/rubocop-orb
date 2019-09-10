@@ -1,0 +1,36 @@
+description: Checkout code and run rubocop
+
+parameters:
+  after-install-rubocop:
+    description: Steps to execute after install rubocop (install rubocop plugins)
+    type: steps
+    default: # from https://rubocop.readthedocs.io/en/stable/extensions/
+      - run: gem install rubocop-performance
+      - run: gem install rubocop-rails
+      - run: gem install rubocop-rspec
+      - run: gem install rubocop-thread_safety
+      - run: gem install rubocop-require_tools
+      - run: gem install rubocop-i18n
+      - run: gem install rubocop-sequel
+  executor:
+    description: executor for rubocop
+    type: executor
+    default: ruby
+  options:
+    description: CLI options
+    type: string
+    default: --parallel --config .rubocop.yml
+  version:
+    description: Rubocop version
+    type: string
+    default: ''
+
+executor: << parameters.executor >>
+
+steps:
+  - checkout
+  - install-rubocop:
+      version: << parameters.version >>
+  - steps: << parameters.after-install-rubocop >>
+  - run-rubocop:
+      options: << parameters.options >>

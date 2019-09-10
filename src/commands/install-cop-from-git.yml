@@ -1,0 +1,9 @@
+description: Install custom cop from git repository
+
+parameters:
+  url:
+    description: custom cop git repository url
+    type: string
+
+steps:
+  - run: git clone --depth 1 << parameters.url >> /tmp/cop && cd /tmp/cop && rake install && cd / && rm -rf /tmp/cop

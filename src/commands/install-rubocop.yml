@@ -1,0 +1,17 @@
+description: Install rubocop
+
+parameters:
+  version:
+    description: Rubocop version
+    type: string
+    default: ''
+
+steps:
+  - run:
+      name: Install rubocop
+      command: |
+        if [ -z "<< parameters.version >>" ]; then
+          gem install rubocop
+        else
+          gem install rubocop --version "<< parameters.version >>"
+        fi

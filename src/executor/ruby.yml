@@ -1,0 +1,3 @@
+# TODO use rubocop image
+docker:
+  - image: rubylang/ruby:latest

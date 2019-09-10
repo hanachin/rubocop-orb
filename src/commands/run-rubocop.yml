@@ -1,0 +1,10 @@
+description: Run rubocop
+
+parameters:
+  options:
+    description: CLI options
+    type: string
+    default: --parallel --config .rubocop.yml
+
+steps:
+  - run: rubocop << parameters.options >>
