@@ -63,7 +63,7 @@ workflows:
       - rubocop/rubocop:
           version: '0.74.0'
           after-install-rubocop:
-            - run: gem install performance
+            - run: gem install rubocop-performance
             - rubocop/install-cop-from-git:
                 url: https://github.com/pocke/rubocop-rake.git
 ```
