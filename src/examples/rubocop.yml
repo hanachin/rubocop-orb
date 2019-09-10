@@ -1,0 +1,14 @@
+description: |
+  Run rubocop
+
+usage:
+  version: 2.1
+
+  orbs:
+    rubocop: hanachin/rubocop@x.y.z
+
+  workflows:
+    version: 2
+    test:
+      jobs:
+        - rubocop/rubocop

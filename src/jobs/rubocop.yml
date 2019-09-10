@@ -15,7 +15,7 @@ parameters:
   executor:
     description: executor for rubocop
     type: executor
-    default: ruby
+    default: rubocop/ruby
   options:
     description: CLI options
     type: string
