@@ -8,7 +8,7 @@ parameters:
 
 steps:
   - run:
-      name: Install rubocop
+      name: Install rubocop << parameters.version >>
       command: |
         if [ -z "<< parameters.version >>" ]; then
           gem install rubocop
